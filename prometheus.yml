@@ -1,0 +1,16 @@
+global:
+  scrape_interval:     5s
+  evaluation_interval: 5s
+
+scrape_configs:
+  - job_name: 'sonarqube'
+    metrics_path: '/api/prometheus/metrics'
+    static_configs:
+      - targets: ['sonarqube:9000']
+    basic_auth:
+      username: 'admin'
+      password: 'admin'
+  - job_name: 'keycloak'
+    metrics_path: '/auth/realms/master/metrics'
+    static_configs:
+      - targets: ['keycloak:8080']

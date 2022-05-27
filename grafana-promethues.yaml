@@ -1,0 +1,38 @@
+version: "3"
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:rw
+      - ./targets.yml:/etc/prometheus/targets.yml:rw
+      - ./rules:/etc/prometheus/rules:rw
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    ports:
+      - "9090:9090"
+    networks:
+      over8:
+
+  grafana:
+    image: grafana/grafana
+    user: root
+    volumes:
+      - ./grafana_data:/var/lib/grafana:rw
+      - ./grafana/provisioning:/etc/grafana/provisioning:rw
+      - ./grafana.ini:/etc/grafana/grafana.ini
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    ports:
+      - "3000:3000"
+    networks:
+      over8:
+
+networks:
+  over8:
+    external: true
