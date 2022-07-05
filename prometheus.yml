@@ -18,5 +18,18 @@ scrape_configs:
     metrics_path: '/prometheus/'
     static_configs:
       - targets: ['prometheus:8080']
-      
+  - job_name: 'sonarqube'           
+    metrics_path: '/api/monitoring/metrics'
+    static_configs:      
+      - targets: ['sonarqube.biplus.com.vn']
+    basic_auth:    
+      username: 'squ_68062ac35487f72c33ecb68efc13361c5ef23935'
+      password: ''
+  - job_name: 'nexus'                                         
+    metrics_path: '/service/metrics/prometheus'
+    static_configs:      
+      - targets: ['nexus.biplus.com.vn']   
+    basic_auth:        
+      username: 'secret'                            
+      password: 'N8dL9NKPwdPiYH7'
       ####
