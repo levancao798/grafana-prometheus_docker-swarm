@@ -21,14 +21,14 @@ scrape_configs:
   - job_name: 'sonarqube'           
     metrics_path: '/api/monitoring/metrics'
     static_configs:      
-      - targets: ['sonarqube.biplus.com.vn']
+      - targets: ['sonarqube.domain.com.vn']
     basic_auth:    
       username: 'squ_68062ac35487f72c33ecb68efc13361c5ef23935'
       password: ''
   - job_name: 'nexus'                                         
     metrics_path: '/service/metrics/prometheus'
     static_configs:      
-      - targets: ['nexus.biplus.com.vn']   
+      - targets: ['nexus.domain.com.vn']   
     basic_auth:        
       username: 'secret'                            
       password: 'N8dL9NKPwdPiYH7'
@@ -49,5 +49,5 @@ scrape_configs:
         replacement: localhost:9115 # Blackbox exporter
   - job_name: 'cadvisor'                                         
     static_configs:                                           
-      - targets: ['192.168.3.56:8080']
+      - targets: ['172.17.0.1:8080']
       ####
