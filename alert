@@ -1,0 +1,8 @@
+[ var='B0' metric='probe_http_status_code{instance="https://jenkins.domain.com.vn", 
+job="blackbox"}' labels={__name__=probe_http_status_code, 
+instance=https://jenkins.domain.com.vn, 
+job=blackbox} value=403 ]
+
+[ var='B0' metric='Value' labels={__name__=probe_success, instance=https://domain.com.vn, job=blackbox} value=0 ]
+#alert
+{{ $values.B0.Labels.instance }} has been down {{ $values.B0.Labels.value }}
