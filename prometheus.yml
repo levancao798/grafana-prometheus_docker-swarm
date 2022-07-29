@@ -51,3 +51,8 @@ scrape_configs:
     static_configs:                                           
       - targets: ['172.17.0.1:8080']
       ####
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - localhost:9093
