@@ -49,7 +49,7 @@ scrape_configs:
         replacement: localhost:9115 # Blackbox exporter
   - job_name: 'cadvisor'                                         
     static_configs:                                           
-      - targets: ['172.17.0.1:8080']
+      - targets: ['cadvisor:8080']
       ####
 alerting:
   alertmanagers:
