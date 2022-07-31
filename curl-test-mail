@@ -4,3 +4,6 @@ curl --ssl-reqd \
   --mail-from 'username@gmail.com' \
   --mail-rcpt 'john@example.com' \
   --upload-file mail.txt
+
+
+
