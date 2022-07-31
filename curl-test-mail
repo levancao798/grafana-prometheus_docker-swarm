@@ -5,5 +5,3 @@ curl --ssl-reqd \
   --mail-rcpt 'john@example.com' \
   --upload-file mail.txt
 
-
-
